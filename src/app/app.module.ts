@@ -9,6 +9,8 @@ import { CountsComponent } from './counts/counts.component';
 import { RegisterComponent } from './register/register.component';
 import { FormRegisterComponent } from './form-register/form-register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CardTransactionComponent } from './card-transaction/card-transaction.component';
+import { FiltersComponent } from './filters/filters.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     CountsComponent,
     RegisterComponent,
-    FormRegisterComponent
+    FormRegisterComponent,
+    CardTransactionComponent,
+    FiltersComponent
   ],
   imports: [
     BrowserModule,

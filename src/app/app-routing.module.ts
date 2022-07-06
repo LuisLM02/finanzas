@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CountsComponent } from './counts/counts.component';
+import { FiltersComponent } from './filters/filters.component';
 import { FormRegisterComponent } from './form-register/form-register.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
@@ -11,6 +12,8 @@ const routes: Routes = [
   {path: 'counts', component: CountsComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'register/form', component: FormRegisterComponent},
+  {path: 'register/filters', component: FiltersComponent},
+
 ];
 
 @NgModule({
