@@ -7,6 +7,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { CountsComponent } from './counts/counts.component';
 import { RegisterComponent } from './register/register.component';
+import { FormRegisterComponent } from './form-register/form-register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { RegisterComponent } from './register/register.component';
     NavBarComponent,
     HomeComponent,
     CountsComponent,
-    RegisterComponent
+    RegisterComponent,
+    FormRegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

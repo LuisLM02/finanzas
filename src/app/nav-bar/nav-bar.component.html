@@ -1,6 +1,32 @@
-<ul>
-  <li><a routerLink="/home">Home</a></li>
-  <li><a routerLink="/counts">Counts</a></li>
-  <li><a routerLink="/register">Resgister</a></li>
-  <li><a routerLink="">Options</a></li>
+<ul class="w-90 h-20 m-auto bg-violet-900 rounded-t-3xl fixed bottom-0 left-0 right-0 flex">
+
+  <li class="basis-1/4 flex justify-center items-center">
+    <button (click)="visibilityButton(0)" routerLink="/home" class="text-white p-7 font-bold">
+      <img src="../../assets/01 Home.svg" alt="Home" class="w-6 h-6 m-auto" />
+      <span [ngClass]="{ 'hidden': visible[0] }" class="text-center">Home</span>
+    </button>
+  </li>
+
+  <li class="basis-1/4 flex justify-center items-center">
+    <button (click)="visibilityButton(1)" routerLink="/counts" class="text-white p-7 font-bold">
+      <img src="../../assets/02 Cuentas.svg" alt="Counts" class="w-6 h-6 m-auto" />
+      <span [ngClass]="{ 'hidden' : visible[1] }" class="text-center">Counts</span>
+    </button>
+  </li>
+
+  <li class="basis-1/4 flex justify-center items-center">
+    <button
+      (click)="visibilityButton(2)" routerLink="/register" class="text-white p-7 font-bold">
+      <img src="../../assets/03 Registros.svg" alt="Register" class="w-6 h-6 m-auto" />
+      <span [ngClass]="{ 'hidden' : visible[2] }" class="text-center">Register</span>
+    </button>
+  </li>
+
+  <li class="basis-1/4 flex justify-center items-center">
+    <button (click)="visibilityButton(3)" routerLink="" class="text-white p-7 font-bold">
+      <img src="../../assets/04 Stats.svg" alt="Stats" class="w-6 h-6 m-auto" />
+      <span [ngClass]="{ 'hidden' : visible[3] }" class="text-center">Stats</span>
+    </button>
+  </li>
+
 </ul>

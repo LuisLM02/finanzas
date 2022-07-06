@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
+  visible:Array<boolean> = [false, true, true, true];
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  visibilityButton(num:number):void {
+    this.visible.fill(true);
+    this.visible[num] = false;
+  }
 }

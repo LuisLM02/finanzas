@@ -1,0 +1,85 @@
+<form class="p-5" [formGroup]="transactionForm">
+  
+  <button 
+    routerLink="/register"
+    class="mb-2 flex flex-nowrap items-center" >
+    <img src="../../assets/14 Flecha izq.svg" alt="Back" class="w-5 h-5 mr-2">
+    <span class="text-violet-400 font-bold">Back</span>
+  </button>
+
+  <span class="font-bold flex justify-between text-xl mt-5">
+    <h2 class="text-sky-900">New Register</h2>
+    <button class="w-24 h-7 bg-indigo-400 text-zinc-50 rounded-2xl text-sm">Accept</button>
+  </span>
+
+  <span class="flex mt-4">
+    <span class="basis-2/4 p-2">
+      <label for="amount" class="block text-gray-600 font-bold">Amount</label>
+      <select 
+        name="amount" 
+        id="amount" 
+        formControlName="amount"
+        class="bg-gray-100 p-1 rounded-xl focus:outline-none focus:ring-2  focus:ring-gray-500 w-full h-8 invalid:border-pink-500 invalid:text-pink-600
+        focus:invalid:border-pink-500 focus:invalid:ring-pink-500" >
+          <option value="" selected>Select amount</option>
+
+          <option value="mama">mama</option>
+          <option value="papa">papa</option>
+          <option value="abuela">abuela</option>
+
+      </select>
+    </span>
+    <span class="basis-2/4 p-2">
+      <label for="category" class="block text-gray-600 font-bold">Category</label>
+      <select
+        name="category" 
+        id="category"
+        formControlName="category"
+        class="bg-gray-100 p-1 rounded-xl focus:outline-none focus:ring-2  focus:ring-gray-500 w-full h-8 invalid:border-pink-500 invalid:text-pink-600
+        focus:invalid:border-pink-500 focus:invalid:ring-pink-500" >
+          <option value="">Select category</option>
+
+          <option value="comida">comdida</option>
+          <option value="juegos">juegos</option>
+          <option value="escuela">escuela</option>
+          
+      </select>
+    </span>
+  </span>
+
+  <span class="flex mt-4">
+    <span class="basis-2/4 p-2">
+      <label for="Import" class="block text-gray-600 font-bold">Import</label>
+      <input 
+        type="number" 
+        name="import" 
+        id="import" 
+        placeholder="Import.."
+        autocomplete="off"
+        formArrayName="import"
+        required
+        class="bg-gray-100 p-1 rounded-xl focus:outline-none focus:ring-2  focus:ring-gray-500 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 w-full" >
+    </span>
+    <span class="basis-2/4 p-2">
+      <label for="date" class="block text-gray-600 font-bold">Date</label>
+      <input 
+        type="date" 
+        name="date" 
+        id="date" 
+        autocomplete="off"
+        formArrayName="date" 
+        required
+        class="bg-gray-100 p-1 rounded-xl focus:outline-none focus:ring-2  focus:ring-gray-500 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 w-full" >
+    </span>
+  </span>
+
+  <span class="p-2">
+    <label for="notes" class="block text-gray-600 font-bold">Notes</label>
+    <textarea 
+      name="notes" 
+      id="notes"
+      rows="10"
+      class="bg-gray-100 p-1 rounded-xl focus:outline-none focus:ring-2  focus:ring-gray-500 w-full h-full resize-none" ></textarea>
+  </span>
+  
+</form>
