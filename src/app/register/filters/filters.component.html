@@ -1,0 +1,144 @@
+<div class="p-5">
+  <button routerLink="/register" class="mb-2 flex flex-nowrap items-center">
+    <img src="../../assets/14 Flecha izq.svg" alt="Back" class="w-5 h-5 mr-2" />
+    <div class="text-violet-400 font-bold">Back</div>
+  </button>
+
+  <div class="p-5 mb-20">
+    <div class="flex justify-between">
+      <h2 class="font-bold text-xl text-sky-900">Register</h2>
+      <button
+        routerLink="/register"
+        class="w-2/5 h-8 bg-indigo-400 text-white rounded-xl font-bold">
+        Accept
+      </button>
+    </div>
+
+    <h3 class="text-xl font-bold text-slate-400 mt-5">Filter</h3>
+
+    <div>
+      <div
+        (click)="visibility('acounts')"
+        class="font-bold flex justify-between content-center mt-5 h-5">
+        <span class="text-sky-900 w-9 flex content-center">
+          <img
+            src="../../assets/13 Flecha der.svg"
+            class="w-2 mr-4 inline"
+            [ngClass]="{ 'rotate-90': acount }" />Acounts</span
+        >
+        <span class="text-stone-400">All</span>
+      </div>
+
+      <div class="font-bold text-base text-stone-400 px-5" *ngIf="acount">
+        <div *ngFor="let acount of acounts">
+          <input
+            type="checkbox"
+            id="{{ acount.name }}"
+            name="{{ acount.name }}"
+            (click)="addFilterAcount(acount.name)" />
+          <label for="{{ acount.name }}">
+            <img src="{{ acount.avatar }}" class="w-5 inline mx-2" />
+            {{ acount.name }}
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div
+        (click)="visibility('intervals')"
+        class="font-bold flex justify-between content-center mt-5 h-5">
+        <span class="text-sky-900 w-9 flex content-center">
+          <img
+            src="../../assets/13 Flecha der.svg"
+            class="w-2 mr-4 inline"
+            [ngClass]="{ 'rotate-90': interval }" />Intervals</span
+        >
+        <span class="text-stone-400">All</span>
+      </div>
+
+      <div class="font-bold text-base text-stone-400 px-5" *ngIf="interval">
+        <div *ngFor="let interval of intervals">
+          <input
+            type="checkbox"
+            id="{{ interval.value }}"
+            name="{{ interval.value }}"
+            (click)="addFilterInterval(interval.value)" />
+          <label for="{{ interval.value }}" class="ml-2">
+            {{ interval.text }}
+          </label>
+        </div>
+
+        <!-- <div>
+          <input type="checkbox" id="interval-custom" name="interval-custom" />
+          <label for="interval-custom" class="ml-2">Interval Custom</label>
+          <div class="px-5 mt-2">
+            <label for="start" class="w-20 inline-block">Start</label>
+            <input
+              type="date"
+              name="start"
+              id="start"
+              class="rounded-2xl bg-gray-100 p-1 m-1 focus:outline-none focus:ring-2 focus:ring-gray-500" />
+            <br />
+            <label for="end" class="w-20 inline-block">End</label>
+            <input
+              type="date"
+              name="end"
+              id="end"
+              class="rounded-2xl bg-gray-100 p-1 m-1 focus:outline-none focus:ring-2 focus:ring-gray-500" />
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <div>
+      <div
+        (click)="visibility('categorys')"
+        class="font-bold flex justify-between content-center mt-5 h-5">
+        <span class="text-sky-900 w-9 flex content-center">
+          <img
+            src="../../assets/13 Flecha der.svg"
+            class="w-2 mr-4 inline"
+            [ngClass]="{ 'rotate-90': category }" />Categorys</span
+        >
+        <span class="text-stone-400">All</span>
+      </div>
+
+      <div class="font-bold text-base text-stone-400 px-5" *ngIf="category">
+        <div *ngFor="let category of categorys">
+          <input
+            type="checkbox"
+            id="{{ category }}"
+            name="{{ category }}"
+            (click)="addFilterCategory(category)" />
+          <label for="{{ category }}" class="ml-2">{{ category }}</label>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div
+        (click)="visibility('payments')"
+        class="font-bold flex justify-between content-center mt-5 h-5">
+        <span class="text-sky-900 w-9 flex content-center">
+          <img
+            src="../../assets/13 Flecha der.svg"
+            class="w-2 mr-4 inline"
+            [ngClass]="{ 'rotate-90': payment }" />Payments</span
+        >
+        <span class="text-stone-400">All</span>
+      </div>
+
+      <div class="font-bold text-base text-stone-400 px-5" *ngIf="payment">
+        <div *ngFor="let payment of payments">
+          <input
+            type="checkbox"
+            id="{{ payment }}"
+            name="{{ payment }}"
+            (click)="addFilterPayment(payment)" />
+          <label for="{{ payment }}" class="ml-2">{{ payment }}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,145 @@
+<form class="p-5" (ngSubmit)="onSubmit()" [formGroup]="transactionForm">
+  <button routerLink="/register" class="mb-2 flex flex-nowrap items-center">
+    <img src="../../assets/14 Flecha izq.svg" alt="Back" class="w-5 h-5 mr-2" />
+    <div class="text-violet-400 font-bold">Back</div>
+  </button>
+
+  <div class="font-bold flex justify-between text-xl mt-5">
+    <h2 class="text-sky-900">New Register</h2>
+    <button class="w-24 h-7 bg-indigo-400 text-zinc-50 rounded-2xl text-sm">
+      Accept
+    </button>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="basis-2/4 p-2">
+      <label for="acount" class="block text-gray-600 font-bold">acount</label>
+      <select
+        name="acount"
+        id="acount"
+        formControlName="acount"
+        class="bg-gray-100 p-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-500 w-full h-8 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
+        <option value="" selected>Select acount</option>
+        <option *ngFor="let acount of acounts" value="{{ acount.name }}">
+          {{ acount.name }}
+        </option>
+      </select>
+
+      <div
+        *ngIf="(transactionForm.get('acount')?.touched && transactionForm.get('acount')?.errors?.['required']) || inputValidation[0]"
+        class="bg-red-300 h-6 rounded-md text-center">
+        <p class="text-center text-gray-500">Acount is required.</p>
+      </div>
+    </div>
+    <div class="basis-2/4 p-2">
+      <label for="category" class="block text-gray-600 font-bold"
+        >Category</label
+      >
+      <select
+        name="category"
+        id="category"
+        formControlName="category"
+        class="bg-gray-100 p-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-500 w-full h-8 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
+        <option value="">Select category</option>
+        <option *ngFor="let category of categorys" value="{{ category }}">
+          {{ category }}
+        </option>
+      </select>
+
+      <div
+        *ngIf="(transactionForm.get('category')?.touched && transactionForm.get('category')?.errors?.['required']) || inputValidation[1]"
+        class="bg-red-300 h-6 rounded-md text-center">
+        <p class="text-center text-gray-500">Category is required.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="basis-2/4 p-2">
+      <label for="description" class="block text-gray-600 font-bold"
+        >Description</label
+      >
+      <input
+        type="text"
+        name="description"
+        id="description"
+        placeholder="Description..."
+        autocomplete="off"
+        formControlName="description"
+        class="bg-gray-100 p-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-500 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 w-full" />
+
+      <div
+        *ngIf="(transactionForm.get('description')?.touched && transactionForm.get('description')?.errors?.['required']) || inputValidation[2]"
+        class="bg-red-300 h-6 rounded-md text-center">
+        <p class="text-center text-gray-500">Description is required.</p>
+      </div>
+    </div>
+    <div class="basis-2/4 p-2">
+      <label for="date" class="block text-gray-600 font-bold">Payment</label>
+      <select
+        type="string"
+        name="payment"
+        id="payment"
+        autocomplete="off"
+        formControlName="payment"
+        class="bg-gray-100 p-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-500 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 w-full">
+        <option value="">Select payment</option>
+        <option *ngFor="let payment of payments" value="{{ payment }}">
+          {{ payment }}
+        </option>
+      </select>
+
+      <div
+        *ngIf="(transactionForm.get('payment')?.touched && transactionForm.get('payment')?.errors?.['required'])|| inputValidation[3]"
+        class="bg-red-300 h-6 rounded-md text-center">
+        <p class="text-center text-gray-500">Payment is required.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="basis-2/4 p-2">
+      <label for="Import" class="block text-gray-600 font-bold">Import</label>
+      <input
+        type="number"
+        name="import"
+        id="import"
+        placeholder="Import.."
+        autocomplete="off"
+        formControlName="import"
+        class="bg-gray-100 p-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-500 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 w-full" />
+
+      <div
+        *ngIf="(transactionForm.get('import')?.touched && transactionForm.get('import')?.errors?.['required']) || inputValidation[4]"
+        class="bg-red-300 h-6 rounded-md text-center">
+        <p class="text-center text-gray-500">Import is required.</p>
+      </div>
+    </div>
+    <div class="basis-2/4 p-2">
+      <label for="date" class="block text-gray-600 font-bold">Date</label>
+      <input
+        type="datetime-local"
+        name="date"
+        id="date"
+        autocomplete="off"
+        formControlName="date"
+        class="bg-gray-100 p-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-500 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 w-full" />
+
+      <div
+        *ngIf="(transactionForm.get('date')?.touched && transactionForm.get('date')?.errors?.['required'])|| inputValidation[5]"
+        class="bg-red-300 h-6 rounded-md text-center">
+        <p class="text-center text-gray-500">Date es required.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-2">
+    <label for="notes" class="block text-gray-600 font-bold">Notes</label>
+    <textarea
+      name="notes"
+      id="notes"
+      rows="8"
+      formControlName="note"
+      class="bg-gray-100 p-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-500 w-full h-full resize-none"></textarea>
+  </div>
+</form>

@@ -7,10 +7,11 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { CountsComponent } from './counts/counts.component';
 import { RegisterComponent } from './register/register.component';
-import { FormRegisterComponent } from './form-register/form-register.component';
+import { FormRegisterComponent } from './register/form-register/form-register.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CardTransactionComponent } from './card-transaction/card-transaction.component';
-import { FiltersComponent } from './filters/filters.component';
+import { CardTransactionComponent } from './register/card-transaction/card-transaction.component';
+import { FiltersComponent } from './register/filters/filters.component';
+import { FormEditComponent } from './register/form-edit/form-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +22,11 @@ import { FiltersComponent } from './filters/filters.component';
     RegisterComponent,
     FormRegisterComponent,
     CardTransactionComponent,
-    FiltersComponent
+    FiltersComponent,
+    FormEditComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

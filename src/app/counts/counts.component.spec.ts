@@ -8,9 +8,8 @@ describe('CountsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CountsComponent ]
-    })
-    .compileComponents();
+      declarations: [CountsComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CountsComponent);
     component = fixture.componentInstance;

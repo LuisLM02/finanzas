@@ -1,24 +1,26 @@
-export class Transaction{
-  amount:string;
-  category:string;
-  money:number;
-  description:string;
-  payment:string;
-  date:Date;
-  note:string;
+export class Transaction {
+  id: number;
+  acount: string;
+  category: string;
+  spent: number;
+  description: string;
+  payment: string;
+  date: Date;
+  note: string;
 
   constructor(
-    amount:string,
-    category:string,
-    money:number,
-    description:string,
-    payment:string,
-    date:Date,
-    note:string = ''
-  ){
-    this.amount = amount;
+    acount: string,
+    category: string,
+    spent: number,
+    description: string,
+    payment: string,
+    date: Date,
+    note: string = ''
+  ) {
+    this.id = Math.random() * (1000 - 1) + 1;
+    this.acount = acount;
     this.category = category;
-    this.money = money;
+    this.spent = spent;
     this.description = description;
     this.payment = payment;
     this.date = date;

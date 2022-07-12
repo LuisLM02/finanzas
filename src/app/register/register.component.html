@@ -1,44 +1,79 @@
 <div class="flex justify-between">
-  <img src="../assets/36 Logotipo icon.svg" class="w-10 h-10 m-5">
+  <img src="../assets/36 Logotipo icon.svg" class="w-10 h-10 m-5" />
   <div class="m-5 flex">
-    <img src="../../assets/20 Avatar oso 1.svg" alt="" class="w-10 ml-1">
-    <img src="../../assets/21 Avatar panda 1.svg" alt="" class="w-10 ml-1">
-    <img src="../../assets/25 Avatar pollo 2.svg" alt="" class="w-10 ml-1">
+    <img
+      *ngFor="let acount of acounts"
+      src="{{ acount.avatar }}"
+      class="w-10 ml-1" />
   </div>
 </div>
 
 <div class="p-5 -mt-3">
-
   <div class="flex justify-between">
     <h2 class="font-bold text-xl text-sky-900">Register</h2>
     <div class="rounded-3xl bg-gray-200">
-      <button class="flex items-center justify-center rounded-t-3xl bg-gray-200 w-40 h-8" [ngClass]="{'rounded-3xl w-20': !visibility}">
-        <img src="../../assets/08 Filtrar.svg" alt="" class="w-5 brightness-50">
+      <button
+        id="filters"
+        (click)="changeVisibility()"
+        class="flex items-center justify-center rounded-t-3xl bg-gray-200 w-40 h-8"
+        [ngClass]="{ 'rounded-3xl w-20': !visibility }">
+        <img
+          *ngIf="!filter"
+          src="../../assets/08 Filtrar.svg"
+          alt=""
+          class="w-5 brightness-50" />
+        <p class="pl-5 pr-5 w-40" *ngIf="filter">{{ filter }}</p>
       </button>
       <div class="absolute" *ngIf="visibility">
-        <button class="bg-gray-200 w-40 p-1 text-center text-sky-900 font-light">Most recent</button>
-        <button class="bg-gray-200 w-40 p-1 text-center text-sky-900 font-light">Less recent</button>
-        <button class="bg-gray-200 w-40 p-1 text-center text-sky-900 font-light">Higher amount</button>
-        <button class="rounded-b-3xl bg-gray-200 w-40 p-1 text-center pb-4 text-sky-900 font-light">Smaller amount</button>
+        <button
+          (click)="onFilter('Most Recent')"
+          class="bg-gray-200 w-40 p-1 text-center text-sky-900 font-light">
+          Most recent
+        </button>
+        <button
+          (click)="onFilter('Less Recent')"
+          class="bg-gray-200 w-40 p-1 text-center text-sky-900 font-light">
+          Less recent
+        </button>
+        <button
+          (click)="onFilter('Higher Amount')"
+          class="bg-gray-200 w-40 p-1 text-center text-sky-900 font-light">
+          Higher amount
+        </button>
+        <button
+          (click)="onFilter('Smaller Amount')"
+          class="rounded-b-3xl bg-gray-200 w-40 p-1 text-center pb-4 text-sky-900 font-light">
+          Smaller amount
+        </button>
       </div>
     </div>
   </div>
 
   <div class="flex justify-end mt-3">
-    <button routerLink="/register/filters" class="rounded-2xl bg-gray-400 w-2/5 p-1 text-white font-bold">Filter</button>
+    <button
+      routerLink="/register/filters"
+      class="rounded-2xl bg-gray-400 w-2/5 p-1 text-white font-bold">
+      Filter
+    </button>
   </div>
-  
+
   <div class="flex justify-end mt-2">
-    <p class="text-gray-400 text-xl font-bold">$1500 MNX</p>
+    <p class="text-gray-400 text-xl font-bold">${{ money }} MNX</p>
   </div>
 
   <div class="mb-20">
-    <app-card-transaction></app-card-transaction>
+    <p
+      *ngIf="transactions.length === 0"
+      class="text-center text-gray-400 font-bold">
+      No hay registros :c
+    </p>
+
+    <app-card-transaction [transactions]="transactions"></app-card-transaction>
   </div>
-  
 </div>
 
-<button 
-  routerLink="/register/form" 
-  class="w-24 h-7 bg-indigo-400 text-white rounded-xl font-bold fixed 
-  bottom-24 left-0 right-0 m-auto">+ Agregar</button>
+<button
+  routerLink="/register/form"
+  class="w-24 h-7 bg-indigo-400 text-white rounded-xl font-bold fixed bottom-24 left-0 right-0 m-auto">
+  + Agregar
+</button>
